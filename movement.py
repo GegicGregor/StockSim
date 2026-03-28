@@ -13,4 +13,4 @@ class Movement:
 
 
     def _increase(self):
-        return 0.95 + (self.rng.random() / 10)
+        return 0.995 + (self.rng.random() / 100)
