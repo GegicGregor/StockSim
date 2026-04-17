@@ -1,17 +1,20 @@
 from simulation import Simulation
 from visualization import Visualization
 from stock import Stock
+from statistics import Statistics
 
 
 visualization = Visualization()
-myStock = Stock()
+myStock = Stock(100)
 simulation = Simulation(myStock)
+statistics = Statistics(myStock, simulation)
 
-simulation.for_loop(200)
+simulation.for_loop(265)
 
-visualization.start_graph(myStock.history)
+#visualization.line_graph(myStock.history)
 
 print(myStock.price)
-print(myStock.history)
-print(f"Mean price={myStock.avg_price()}")
-print(f"Growth: {(myStock.price/myStock.start_price)}")
+#print(myStock.history)
+print(f"Mean price = {statistics.avg_price()}")
+print(f"Growth: {statistics.growth()}")
+print(f"Average growth over n tries: {statistics.avg_growth_over_n(10, 265)}")
